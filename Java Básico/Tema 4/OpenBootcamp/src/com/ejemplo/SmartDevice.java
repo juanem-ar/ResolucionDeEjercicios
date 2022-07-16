@@ -1,6 +1,6 @@
 package com.ejemplo;
 
-public abstract class SmartDevice {
+public class SmartDevice {
     
 //    ATRIBUTOS
     private String marca;
@@ -47,4 +47,92 @@ public abstract class SmartDevice {
     }
     
     
+public static class SmartPhone extends SmartDevice{
+   
+//    ATRIBUTOS
+    private String sistemaOperativo;
+    private int cantMemoria;
+    private boolean dobleSim;
+    
+//    CONSTRUCTORES
+    public SmartPhone() {
+    }
+
+    public SmartPhone(String sistemaOperativo, int cantMemoria, boolean dobleSim, String marca, String modelo, String color) {
+        super(marca, modelo, color);
+        this.sistemaOperativo = sistemaOperativo;
+        this.cantMemoria = cantMemoria;
+        this.dobleSim = dobleSim;
+    }
+
+//    METODOS
+
+    public String getSistemaOperativo() {
+        return this.sistemaOperativo;
+    }
+
+    public void setSistemaOperativo(String sistemaOperativo) {
+        this.sistemaOperativo = sistemaOperativo;
+    }
+
+    public int getCantMemoria() {
+        return this.cantMemoria;
+    }
+
+    public void setCantMemoria(int cantMemoria) {
+        this.cantMemoria = cantMemoria;
+    }
+
+    public boolean isDobleSim() {
+        return this.dobleSim;
+    }
+
+    public void setDobleSim(boolean dobleSim) {
+        this.dobleSim = dobleSim;
+    }
+
+    @Override
+    public String toString() {
+        return "SmartPhone{" + "sistemaOperativo=" + sistemaOperativo + ", cantMemoria=" + cantMemoria + ", dobleSim=" + dobleSim + super.toString() + '}';
+    }
+
+}
+public static class SmartWatch extends SmartDevice{
+        
+//    ATRIBUTOS
+    private double pulgadas;
+    
+//    CONSTRUCTORES
+    public SmartWatch() {
+    }
+    public SmartWatch(double pulgadas, String marca, String modelo, String color) {
+        super(marca, modelo, color);
+        this.pulgadas = pulgadas;
+    }
+    
+    //    METODOS
+
+    public double getPulgadas() {
+        return this.pulgadas;
+    }
+
+    public void setPulgadas(double pulgadas) {
+        this.pulgadas = pulgadas;
+    }
+
+    @Override
+    public String toString() {
+        return "SmartWatch{" + "pulgadas=" + pulgadas + super.toString() +'}';
+    }
+
+}
+public static void main(String[] args) {
+        
+        SmartDevice telefono = new SmartPhone("Android", 256, false, "Samsung", "S20 Ultra", "Azul");
+        SmartDevice reloj = new SmartWatch(1.3, "Samsung", "Gear", "Negro");
+        
+        System.out.println("Información sobre el " + telefono);
+        System.out.println("Información sobre el " + reloj);
+}
+
 }
